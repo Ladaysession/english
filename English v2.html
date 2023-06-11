@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>English Learning</title>
+	<meta charset="UTF-8">
+
+	<!--ВНУТРЕННИЕ-ФАЙЛЫ-НАЧАЛО-->
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script src="js.js"></script>
+	<!--ВНУТРЕННИЕ-ФАЙЛЫ-КОНЕЦ-->
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<!--шрифты-начало-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+	<!--шрифты-конец-->
+
+</head>
+<body>
+
+	<!--container-fluid-начало-->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-4 display-none"></div>
+
+			<div class="col-4 main">
+				<!--МЕНЮ-НАЧАЛО-->
+				<div class="menu row">
+					<!--ВЫБОР-СТРАНИЦЫ-НАЧАЛО-->
+					<!--#выборстраницы-->
+					<button class="menu-button menu-left" onclick="ChangePage(0)">Генератор</button>
+					<button class="menu-button menu-right" onclick="ChangePage(1)">Слова</button>
+					
+					<!--#выборстраницы-->
+					<!--ВЫБОР-СТРАНИЦЫ-КОНЕЦ-->
+				</div>
+
+				<div class="main-menu row">
+					<button class="show mm-button mm-button-left" onclick="Show()">Перевод</button>
+					<button class="mm-button mm-button-right" onclick="GenerationAlgorithm()">Генерировать</button>
+					
+				</div>
+
+				<!--МЕНЮ-КОНЕЦ-->
+
+				<!--СТРАНИЦЫ-НАЧАЛО-->
+				<div class="pages">
+					<!--ВСЕ-СТРАНИЦЫ-НАЧАЛО-->
+					<!--#выборстраницы-->
+					<div class="page">
+
+						<!--DIV, куда будет вписываться алгоритм-начало-->
+						<div class="generate-content">
+
+							<h1 class="eng-tr-word"></h1>
+
+							
+
+							<div class="show-content">
+
+								<h1 class="translate"></h1>
+								<div class="examples"></div>
+
+							</div>
+
+							<div class="images"></div>
+							
+
+						</div>
+						<!--DIV, куда будет вписываться алгоритм-конец-->
+
+					</div>
+
+					<!--страница, куда выводяться все слова из массива слов-начало-->
+					<div class="page">
+
+						<h1>Страница 1 - страница с массивом данных</h1>
+						<button class="menu-button" onclick="GetWords();">Get Words</button>
+
+						<!--слова из массива выводим в этот див-начало-->
+						<div class="words-array-page"></div>
+						<!--слова из массива выводим в этот див-начало-->
+
+						<button class="button" onclick="DayAdd()">Добавить День</button>
+
+					</div>
+					<!--страница, куда выводяться все слова из массива слов-конец-->
+					
+					<div class="page">2</div>
+					<div class="page">3</div>
+					<div class="page">4</div>
+					<!--#выборстраницы-->
+					<!--ВСЕ-СТРАНИЦЫ-КОНЕЦ-->
+
+					
+					<div class="modal-window">
+
+						<div class="modal-window-content"></div>
+						<button class="button" onclick="CloseModalWindow()">X</button>
+						
+					</div>
+
+
+				</div>
+				<!--СТРАНИЦЫ-КОНЕЦ-->
+
+				<!--див-который-просто-удлиняет-страницу-начало-->
+				<div class="bottom"></div>
+				<!--див-который-просто-удлиняет-страницу-конец-->
+
+
+				</div>
+			<div class="col-4 display-none">
+		</div>
+	</div>
+	<!--container-fluid-конец-->
+
+
+
+
+
+</body>
+</html>
+
+<!--список функий
+
+#выборстраницы - отвечает за переключение между страницами
+
+добавить новый день
+добавить слово (слово+перевод)
+редактировать
+добавить картинку
+добавить пример
+удалить слово
+
+-->
