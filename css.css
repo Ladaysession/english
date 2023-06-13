@@ -53,18 +53,35 @@
 	display: none;
 }
 .modal-window{
+	font-family: 'Oswald', sans-serif;
 	display: none;
-	background: red;
-	width: 300px;
-/*	height: 300px;*/
-	position: absolute;
-    left: 50%;
-    top: 40%;
+    background: white;
+    width: 24%;
+    position: fixed;
+    left: 66.4%;
+    top: 10%;
+    padding: 15px;
+    border: 5px solid black;
+    border-radius: 0px 50px 200px 0px;
  
 }
-/*.modal-image{
-	max-width: 300px;
-}*/
+.modal-image{
+	margin-top: 20px;
+}
+.modal-button{
+	border: 0;
+	background: black;
+	color: white;
+	margin-bottom: 25px;
+	padding: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-right: 1px solid white;
+}
+
+
+
+
 img,.images{
     max-width: 100%;
 
@@ -154,4 +171,37 @@ button.menu-button{
 .generate-example{
 	background: white;
 	color: black;
+}
+
+
+/*убрать button.button и сделать у всех кнопок в блоке одинаковый класс*/
+button.button.change-word{
+	font-family: 'Oswald', sans-serif;
+	border-radius: 50px;
+	color: white;
+	background: blue;
+	margin-left: 10px;
+	border: 0;
+	width: 8%;
+	font-size: 15px;
+}
+
+h2.words-from-array-english{
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+}
+.words-from-array-english{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.word-button{
+	font-family: 'Oswald', sans-serif;
+	font-size: 25px;
+	background: white;
+	border-radius: 0px 0px 50px 50px;
+	border: 0;
+	width: 32.83%;
+	height: 50px;
+	margin-bottom: 40px;
+	margin-top: 15px;
 }

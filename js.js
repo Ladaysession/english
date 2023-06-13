@@ -4,7 +4,7 @@
 //так же эта штука выполняет роль лаунчера и подгружает функции
 //при загрузке страницы
 window.onload = function(){
-	document.querySelectorAll('.page')[0].style = 'display:block'
+	document.querySelectorAll('.page')[1].style = 'display:block'
 	WriteAllWords() //сразу при загрузке выгружаем на страницу все слова/дни
 	LoadDefaultId() //загружаем defaultId, если таковой имееться в локальном хранилище
 	GenerationAlgorithm() //загружаем алгоритм генерации слов при загрузке
@@ -283,6 +283,95 @@ let Words = {
                 }
             ]
         }
+    ],
+    "2": [
+        {
+            "english": "Brags",
+            "translate": "Хвастается, хвастовство",
+            "image": [
+                {
+                    "image_path": "https://www.wikihow.com/images/thumb/4/49/Deal-With-a-Friend-Who-Brags-Too-Much-About-Her-Kids-Step-18.jpg/aid1986206-v4-1200px-Deal-With-a-Friend-Who-Brags-Too-Much-About-Her-Kids-Step-18.jpg"
+                }
+            ],
+            "example": [
+                {
+                    "example_path": "He always brags about his expensive car. (Он всегда хвастается своей дорогой машиной.)"
+                }
+            ]
+        },
+        {
+            "english": "Accomplishments",
+            "translate": "Достижения",
+            "image": [
+                {
+                    "image_path": "https://www.slideteam.net/media/catalog/product/cache/1280x720/l/i/list_of_accomplishments_powerpoint_graphics_Slide01.jpg"
+                }
+            ],
+            "example": [
+                {
+                    "example_path": "She has many accomplishments in her career, including winning multiple awards. (У нее много достижений в карьере, включая несколько победных наград.)"
+                }
+            ]
+        },
+        {
+            "english": "Deteriorate",
+            "translate": "Ухудшаться, разрушаться",
+            "image": [
+                {
+                    "image_path": "https://upload.wikimedia.org/wikipedia/en/b/b0/Deteriorate-havana-building.JPG"
+                }
+            ],
+            "example": [
+                {
+                    "example_path": "The condition of the building continues to deteriorate over time. (Состояние здания продолжает ухудшаться со временем.)"
+                }
+            ]
+        },
+        {
+            "english": "Choking",
+            "translate": "Задыхаться, подавливать",
+            "image": [
+                {
+                    "image_path": "https://www.verywellhealth.com/thmb/gC-PLWFpHxJOcNSkC4TVFzcVR0k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-136811278-664fedac86fc431d84ab156fdfeda4e4.jpg"
+                }
+            ],
+            "example": [
+                {
+                    "example_path": "She started choking on a piece of food and needed immediate help. (Она начала задыхаться на куске пищи и нуждалась в срочной помощи.)"
+                },
+                {
+                    "example_path": "The smog was so thick that it felt like choking the city. (Смог был таким густым, что казалось, задушит город.)"
+                }
+            ]
+        },
+        {
+            "english": "Desiccation",
+            "translate": "Высыхание, обезвоживание",
+            "image": [
+                {
+                    "image_path": "https://as2.ftcdn.net/v2/jpg/01/57/60/67/1000_F_157606709_cfF3iyEUUHJ6oL4Ed85eU6k9wptWoLrG.jpg"
+                }
+            ],
+            "example": [
+                {
+                    "example_path": "The prolonged drought led to the desiccation of the once-lush farmland. (Длительная засуха привела к обезвоживанию ранее плодородных полей.)"
+                }
+            ]
+        },
+        {
+            "english": "Compelled",
+            "translate": "Вынужденный, принужденный",
+            "image": [
+                {
+                    "image_path": "https://delo.ua/static/content/thumbs/375x243/5/c6/v6lg7o---c17x11x50px50p-c17x11x50px50p--821210b63ab6b5998afcb549ad24dc65.jpeg"
+                }
+            ],
+            "example": [
+                {
+                    "example_path": "She felt compelled to speak up against injustice. (Она чувствовала себя вынужденной говорить против несправедливости.)"
+                }
+            ]
+        }
     ]
 }
 
@@ -453,7 +542,7 @@ function WriteAllWords(){
 		 Words[Object.keys(Words)[i]][y].translate + 
 		'<button class="button change-word" onclick="ChangeWord(' + Object.keys(Words)[i] + ',' + y +')">Р</button>' +
 		'<button class="button change-word" onclick="DeleteIt(' + Object.keys(Words)[i] + ',' + y +')">У</button>' + 
-		'<button class="button" onclick="OpenModalWindow(' + Object.keys(Words)[i] + ',' + y +')">КП</button>' + 
+		'<button class="button change-word" onclick="OpenModalWindow(' + Object.keys(Words)[i] + ',' + y +')">КП</button>' + 
 		'</h2>';
 		y++
 	}
@@ -472,7 +561,7 @@ function WriteAllWords(){
 		 + WordsH1 + `
 		 <button class="button word-button" onclick="ChooseIt(this)">Выбрать</button>
 		 <button class="button word-button" onclick="DeleteIt(` + Object.keys(Words)[i] + `)">Удалить</button>
-		 <button class="button word-button" onclick="AddIt(` + Object.keys(Words)[i] + `)">+</button>
+		 <button class="button word-button" onclick="AddIt(` + Object.keys(Words)[i] + `)">Добавить</button>
 		</div>` )
 
 
@@ -507,7 +596,7 @@ function OpenModalWindow(day,iteration){
 	while( i < Words[day][iteration].image.length ){
 
 		images += '<img class="modal-image" src="' + Words[day][iteration].image[i].image_path + '"></img>' +
-		'<button class="button delete-image" onclick="DeleteImage('+ day + ',' + iteration + ',' + i + ')">Удалить</button>'
+		'<button class="modal-button" onclick="DeleteImage('+ day + ',' + iteration + ',' + i + ')">Удалить</button>'
 		;
 
 		i++;
@@ -519,8 +608,8 @@ function OpenModalWindow(day,iteration){
 	while( y < Words[day][iteration].example.length ){
 
 		examples += '<h2 class="modal-example">' + Words[day][iteration].example[y].example_path + '</h2>' +
-		'<button class="button" onclick="DeleteExample('+ day + ',' + iteration + ',' + y + ')">Удалить</button>' +
-		'<button class="button" onclick="ChangeExample('+ day + ',' + iteration + ',' + y + ')">Редактировать</button>'
+		'<button class="modal-button" onclick="DeleteExample('+ day + ',' + iteration + ',' + y + ')">Удалить</button>' +
+		'<button class="modal-button" onclick="ChangeExample('+ day + ',' + iteration + ',' + y + ')">Редактировать</button>'
 		;
 
 		y++;
@@ -530,9 +619,9 @@ function OpenModalWindow(day,iteration){
 	//выводим в модальное окно наши картинки и примеры по хтмл шаблону, дописываем day/iteration, чтобы
 	//всегда можно было ориентироваться че-куда-какой конкретный элемент
 	ModalWindowContent.insertAdjacentHTML('afterbegin', '<h1>Картинки:</h1>' + images  +
-		'<br><button class="button" onclick="AddImage(' + day + ',' + iteration +')">К</button>' +
+		'<br><button class="button" onclick="AddImage(' + day + ',' + iteration +')">Добавить картинку</button>' +
 		'<br><h1>Примеры:</h1>' + examples +
-		'<br><button class="button" onclick="AddExample(' + day + ',' + iteration +')">П</button>'
+		'<br><button class="button" onclick="AddExample(' + day + ',' + iteration +')">Добавить пример</button>'
 		);
 
 	
